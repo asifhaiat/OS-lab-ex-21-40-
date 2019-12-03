@@ -1,0 +1,195 @@
+ex21.sh
+a=1
+b=5
+while [ $b -le 50 ]
+do
+printf " $a"
+printf ", $b,"
+a=$(($a + 1))
+b=$(($b + 5))
+done
+
+ex22.sh
+echo enter value of n
+read n
+echo
+i=2
+printf "1+"
+while test $i -lt $n
+do
+printf "1/$i+"
+i=$(($i + 1))
+done
+printf "1/$i"
+echo
+
+ex23.sh
+echo enter value of n
+read n
+echo
+b=1
+c=2
+a=1
+n=$(($n - 1))
+while test $a -lt $n
+do
+printf $b/$c+
+b=$(($b + 1))
+c=$(($c + 1))
+a=$(($a + 1))
+done
+printf $b/$c
+echo
+
+ex24.sh
+echo "enter value of n"
+read n
+i=1
+sum=0
+while test $i -le $n
+do
+k=$(($i * $i))
+sum=$(($sum + $k))
+i=$(($i + 1))
+done
+echo Sum of series is $sum
+
+ex25.sh
+echo Enter Salary of  an Employee
+read sal
+if [ $sal -ge 5000 ]
+then
+bonus=$((($sal / 100) * 5))
+else
+bonus=250
+fi
+echo bonus is: $bonus
+
+ex26.sh
+echo "Enter number of integers"
+read n
+echo "enter value of  integer number 1"
+read j
+i=2
+while test $i -le $n
+do
+echo enter value of integer number $i
+read k
+if [ $j -lt $k ]
+then
+j=$k
+fi
+i=$(($i + 1))
+done
+echo Greatest input is $j
+
+ex27.sh
+echo "enter any integer"
+read num
+b=0
+while test $num -gt 0
+do
+a=$(($num % 10))
+b=$((($b + $a) * 10))
+num=$(($num / 10))
+done
+b=$(($b / 10))
+echo reverse=$b
+
+ex28.sh
+ans=y
+while test $ans = y
+do
+echo Enter no. of elements to be sorted
+read no
+echo Enter $no elements
+i=1
+rm sort1
+while test $i -le $no
+do
+read n
+`echo $n >> sort1`
+i=$(($i + 1))
+done
+clear
+echo input order of sorting
+echo 1.Ascending
+echo 2.Descending
+echo enter choice
+read ch
+clear
+case $ch in
+1)    sort -n sort1>file1
+echo Inputted elements in Ascending order:
+cat file1 ;;
+2)    sort -r sort1>file1
+echo Inputted elements in Descending order:
+cat file1 ;;
+1)    echo "Invalid Input" ;;
+esac
+echo continue.......y/n
+read ans
+done
+
+ex29.sh
+echo enter string1
+read str1
+echo enter string2
+read str2
+if test $str1 = $str2
+then
+echo strings are equal
+else
+echo strings are not equal
+fi
+
+ex30.sh
+echo Enter any string 
+read var
+copy=${var}
+
+len=${#copy}
+for((i=$len-1;i>=0;i--)); 
+do rev="$rev${copy:$i:1}"; 
+done
+echo "var: $var, rev: $rev"
+
+
+ex36.sh
+1.pwd
+2.clear
+3.date
+4.mkdir d
+  cd d
+  mkdir d1
+5.cd d1
+6. touch file1 file2
+7.chmod 644 file1 file2
+8.ls
+
+ex39.sh
+echo enter the value of n
+read n
+echo
+i=1
+while test $i -le $n
+do
+echo $i
+i=$(($i + $i))
+done
+
+ex40.sh
+echo enter numbers a and b
+read a b
+while [ 1 ] # infinite loop
+do
+c=$(($a % $b))
+if [ $c -eq 0 ]
+then
+echo GCD = $b
+exit
+fi
+a=$b
+b=$c
+done
+
